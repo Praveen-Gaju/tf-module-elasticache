@@ -1,4 +1,4 @@
-resource "aws_elasticache_cluster" "main" {
+resource "aws_elasticache_cluster" "elasticache" {
   cluster_id           = "${var.env}-elasticache"
   engine               = var.engine
   engine_version       = var.engine_version
