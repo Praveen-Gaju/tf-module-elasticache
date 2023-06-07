@@ -22,3 +22,10 @@ resource "aws_elasticache_subnet_group" "main" {
     { Name = "${var.env}-subnet-group" }
   )
 }
+
+#elasticache endpoint parameter
+resource "aws_ssm_parameter" "ealsticache_endpoint" {
+  name  = "${var.env}.elasticache.endpoint"
+  type  = "String"
+  value = aws_elasticache_cluster.elasticache.cache_nodes[0].address
+}
