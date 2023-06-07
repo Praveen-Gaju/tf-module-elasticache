@@ -6,6 +6,7 @@ resource "aws_elasticache_cluster" "elasticache" {
   num_cache_nodes      = var.num_cache_nodes
   port                 = 6379
   subnet_group_name    = aws_elasticache_subnet_group.main.name
+  security_group_ids   = [aws_security_group.main.id]
 
   tags       = merge(
     var.tags,
